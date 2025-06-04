@@ -147,7 +147,6 @@ void loop() {
   lastButtonState = currentButtonState;
 
   // --- IR Sensor Logic (Non-blocking) ---
-  if (currentMode == AUTOMATIC_MODE) {
     int sensorStatus = digitalRead(IRSensor);
     if (sensorStatus == LOW) { 
       if (!frontLightOn) { 
@@ -169,13 +168,7 @@ void loop() {
       strip1.clear();
       strip1.show();
     }
-  } else { 
-    if (frontLightOn) {
-      strip1.clear();
-      strip1.show();
-      frontLightOn = false;
-    }
-  }
+  } 
 
   // --- Signal Input Logic (Manual Mode) ---
   if (currentMode == MANUAL_MODE) {
