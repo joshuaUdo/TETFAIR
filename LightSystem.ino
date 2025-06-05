@@ -1,4 +1,6 @@
 //MY OWN CODE NEVER GREE DEY WORK SIR.
+//Strip 1 is the compacrtment light with the sensor.
+//Strip 2 is the Main light with 2 modes.
 
 #include <Adafruit_NeoPixel.h>
 #include <EEPROM.h>
@@ -94,6 +96,7 @@ void fadeToColor(Adafruit_NeoPixel& strip, byte r1, byte g1, byte b1, byte r2, b
   }
 }
 
+//Save State incase of a power outage ~ system boots back into the last mode.
 void saveModeToEEPROM(Mode mode) {
   EEPROM.update(MODE_ADDRESS, (byte)mode);
 }
@@ -131,7 +134,7 @@ void setup() {
 }
 
 void loop() {
-  // --- Button Logic ---
+  // Button Logic 
   bool currentButtonState = digitalRead(BUTTON_PIN);
   if (currentButtonState == LOW && lastButtonState == HIGH) {
     static unsigned long lastButtonPressTime = 0;
@@ -146,7 +149,7 @@ void loop() {
   }
   lastButtonState = currentButtonState;
 
-  // --- IR Sensor Logic (Non-blocking) ---
+  // IR Sensor Logic
     int sensorStatus = digitalRead(IRSensor);
     if (sensorStatus == LOW) { 
       if (!frontLightOn) { 
@@ -170,7 +173,7 @@ void loop() {
     }
   } 
 
-  // --- Signal Input Logic (Manual Mode) ---
+  // Signal Input Logic
   if (currentMode == MANUAL_MODE) {
     bool currentSignalState = digitalRead(SIGNAL_IN_PIN);
     static unsigned long lastSignalChangeTime = 0;
