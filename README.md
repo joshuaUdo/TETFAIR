@@ -14,7 +14,7 @@ The Second Neopixel strip is only triggered once the Pad falls. Using a HRTC5000
 
 ***CODE FEAUTURES***
 
-Using EEPROM : Electrically Erasable Programmable Read-Only Memory ~ This saves the last state of the lights in a event of maybe a power Outage.
+EEPROM : Electrically Erasable Programmable Read-Only Memory ~ This saves the last state of the lights in a event of maybe a power Outage.
 Also it boots up from the last saved state ~ rather than changing mode all the time you can just set it to one and it remains there
 
-Using Debounce : To avoid misclicks.
+Debounce : To avoid misclicks.
