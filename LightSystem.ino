@@ -1,4 +1,3 @@
-//MY OWN CODE NEVER GREE DEY WORK SIR.
 //Strip 1 is the compacrtment light with the sensor.
 //Strip 2 is the Main light with 2 modes.
 
